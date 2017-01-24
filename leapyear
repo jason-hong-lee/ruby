@@ -1,0 +1,14 @@
+puts "Where do you want to start?"
+a = gets.chomp
+puts "Where do you want to end?"
+b = gets.chomp
+
+a= a.to_i
+b= b.to_i
+
+while b>=a
+  if a % 4 == 0 && (a % 100 != 0 | a % 400 == 0)
+    puts a
+  end
+  a+=1
+end

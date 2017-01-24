@@ -1,0 +1,16 @@
+count = 0
+year = rand(1930..1950)
+while count != 3
+  answer = gets.chomp
+  if answer == "BYE"
+    count +=1
+  else
+    count = 0
+  end
+  if answer != answer.upcase
+    puts "HUH?! SPEAK UP, SONNY!"
+  elsif answer == answer.upcase
+    puts "NO, NOT SINCE " + year.to_s
+    year = rand(1930..1950)
+  end
+end
