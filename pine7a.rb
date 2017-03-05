@@ -5,4 +5,5 @@ while answer != ""
   answer = gets.chomp
   answers.push(answer)
 end
-puts answers.sort
+answers = answers.reject {|e| e.to_s.empty? }
+puts answers.sort.join

@@ -5,21 +5,28 @@ while answer != ""
   answer = gets.chomp
   answers.push(answer)
 end
-answers.compact
+answers = answers.reject {|e| e.to_s.empty? }
 
 sorted = []
-x = 1
-while answers.length != sorted.length
-  greatest_index = 0
-  greatest_value = answers[0]
-  while x <= answers.length
-    if answers[x] > greatest_value
-      greatest_value = answers[x]
-      greatest_index = x
+def sorter (answers, sorted)
+  x = 0
+  y = 0
+  while y <= answers.length
+    if answers[x] > answers[y]
+      x = y
+      y +=1
+    elsif answers[y] > answers[x]
+      y+=1
+    else
+      y+=1
     end
-    x+=1
   end
-  sorted.push(answers[greatest_index])
-  answers.delete_at(greatest_index)
+  sorted.push(answers[x])
+  answers.delete(answers[x])
+  sorter(answers, sorted)
 end
+sorter(answers, sorted)
+
 puts sorted
+puts
+puts array
